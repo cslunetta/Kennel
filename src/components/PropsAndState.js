@@ -13,6 +13,8 @@ export const PropsAndState = ({ yourName }) => {
   return (
     <>
       <h3>Welcome, {yourName}</h3>
+      <p>{countClicks}</p>
+      <button onClick={(handleClick)}>Click Me</button>
     </>
   )
 }
