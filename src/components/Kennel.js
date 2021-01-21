@@ -4,6 +4,7 @@ import { AnimalCard } from "./animal/AnimalCard"
 import { CustomerCard } from "./customer/CustomerCard"
 import { EmployeeCard } from "./employee/EmployeeCard"
 import { LocationCard } from "./location/LocationCard"
+import { PropsAndState } from "./PropsAndState"
 
 export const Kennel = () => (
     <>
@@ -14,23 +15,27 @@ export const Kennel = () => (
             <div>500 Puppy Way</div>
         </address>
 
-        <h2>Animals</h2>
-        <article className="animals">
-            <AnimalCard />
-            <AnimalCard />
-            <AnimalCard />
-        </article>
+        <PropsAndState yourName="Chris" />
+            <h2>Animals</h2>
+            <article className="animals">
+                <AnimalCard />
+                <AnimalCard />
+                <AnimalCard />
+            </article>
+        
         <h2>Employees</h2>
         <article className="employees">
             <EmployeeCard />
             <EmployeeCard />
             <EmployeeCard />
         </article>
+        
         <h2>Locations</h2>
         <article className="locations">
             <LocationCard />
             <LocationCard />
         </article>
+        
         <h2>Customers</h2>
         <article className="customers">
             <CustomerCard />
