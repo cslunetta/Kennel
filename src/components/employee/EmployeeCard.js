@@ -3,7 +3,7 @@ import "./Employee.css"
 
 export const EmployeeCard = () => (
     <section className="employee">
-        <h3 className="employee__name">Hannah Hall</h3>
-        <div className="employee__address">Address: 100 infinity Way</div>
+        <h3 className="employee__name">Emma Beaton</h3>
+        <div className="employee__address">Nashville Kennels North</div>
     </section>
 )

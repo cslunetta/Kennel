@@ -3,7 +3,7 @@ import "./Location.css"
 
 export const LocationCard = () => (
     <section className="location">
-        <h3 className="location__name">Hannah Hall</h3>
-        <div className="location__address">Address: 100 infinity Way</div>
+        <h3 className="location__name">Nashville Kennels North</h3>
+        <div className="location__address">200 Main Street</div>
     </section>
 )
