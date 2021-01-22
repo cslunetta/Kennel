@@ -1,10 +1,14 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import { Home } from "./Home";
-import { AnimalCard } from "./animal/AnimalCard";
-import { EmployeeCard } from "./employee/EmployeeCard";
-import { LocationCard } from "./location/LocationCard";
-import { CustomerCard } from "./customer/CustomerCard";
+import { AnimalProvider } from "./animal/AnimalProvider";
+import { AnimalList } from "./animal/AnimalList";
+import { EmployeeProvider } from "./employee/EmployeeProvider";
+import { EmployeeList } from "./employee/EmployeeList";
+import { LocationProvider } from "./location/LocationProvider";
+import { LocationList } from "./location/LocationList";
+import { CustomerProvider } from "./customer/CustomerProvider";
+import { CustomerList } from "./customer/CustomerList";
 
 export const ApplicationViews = () => {
   return (
@@ -15,44 +19,36 @@ export const ApplicationViews = () => {
       </Route>
 
       {/* Render the animal list when http://localhost:3000/animals */}
-      <Route path="/animals">
-        <h2>Animals</h2>
-        <article className="animals">
-          <AnimalCard />
-          <AnimalCard />
-          <AnimalCard />
-        </article>
-      </Route>
+      <AnimalProvider>
+        <Route path="/animals">
+          <h2>Animals</h2>
+          <AnimalList />
+        </Route>
+      </AnimalProvider>
 
       {/* Render */}
-      <Route path="/employees">
-        <h2>Employees</h2>
-        <article className="employees">
-          <EmployeeCard />
-          <EmployeeCard />
-          <EmployeeCard />
-        </article>
-      </Route>
+      <EmployeeProvider>
+        <Route path="/employees">
+          <h2>Employees</h2>
+          <EmployeeList />
+        </Route>
+      </EmployeeProvider>
 
       {/* Render */}
-      <Route path="/locations">
-        <h2>Locations</h2>
-        <article className="locations">
-          <LocationCard />
-          <LocationCard />
-        </article>
-      </Route>
+      <LocationProvider>
+        <Route path="/locations">
+          <h2>Locations</h2>
+          <LocationList />
+        </Route>
+      </LocationProvider>
 
       {/* Render */}
+      <CustomerProvider>
       <Route path="/customers">
         <h2>Customers</h2>
-        <article className="customers">
-          <CustomerCard />
-          <CustomerCard />
-          <CustomerCard />
-          <CustomerCard />
-        </article>
+        <CustomerList />
       </Route>
+      </CustomerProvider>
     </>
   );
 };
