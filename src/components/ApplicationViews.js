@@ -24,6 +24,7 @@ import { LocationList } from "./location/LocationList";
 import { LocationForm } from "./location/LocationForm";
 
 import { CustomerList } from "./customer/CustomerList";
+import { AnimalDetail } from "./animal/AnimalDetail";
 
 // Application views is the routing map for what is shown on the main portion of the application.
 export const ApplicationViews = () => {
@@ -36,17 +37,25 @@ export const ApplicationViews = () => {
 
       {/* Render the animal list when http://localhost:3000/animals */}
       <AnimalProvider>
+        <Route exact path="/animals">
+          <AnimalList />
+        </Route>
+      </AnimalProvider>
+
+      <AnimalProvider>
         <CustomerProvider>
           <LocationProvider>
-            <Route exact path="/animals">
-              <AnimalList />
-            </Route>
-
-            <Route path="/animals/create">
+            <Route exact path="/animals/create">
               <AnimalForm />
             </Route>
           </LocationProvider>
         </CustomerProvider>
+      </AnimalProvider>
+
+      <AnimalProvider>
+        <Route exact path="/animals/detail/:animalId(\d+)">
+          <AnimalDetail />
+        </Route>
       </AnimalProvider>
 
       {/* Render employee list */}
