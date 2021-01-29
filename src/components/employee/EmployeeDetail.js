@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { EmployeeContext } from "./EmployeeProvider";
 import "./Employee.css";
 
@@ -9,6 +9,8 @@ export const EmployeeDetail = () => {
   const [employee, setEmployee] = useState({});
 
   const { employeeId } = useParams();
+
+  const history = useHistory()
 
   useEffect(() => {
     console.log("useEffect", employeeId);
@@ -23,6 +25,13 @@ export const EmployeeDetail = () => {
       <div className="employee__location">
         Location: {employee.location?.name}
       </div>
+      <button
+        onClick={() => {
+          history.push(`/employees/edit/${employee.id}`);
+        }}
+      >
+        Edit
+      </button>
     </section>
   );
 };
