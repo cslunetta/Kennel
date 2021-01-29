@@ -14,17 +14,19 @@ import { Home } from "./Home";
 // Animal list view with button routing to form for adding an additional animal
 import { AnimalList } from "./animal/AnimalList";
 import { AnimalForm } from "./animal/AnimalForm";
+import { AnimalDetail } from "./animal/AnimalDetail";
 
 // Employee list view with button routing to form for adding an addditional employee
 import { EmployeeList } from "./employee/EmployeeList";
 import { EmployeeForm } from "./employee/EmployeeForm";
+import { EmployeeDetail } from "./employee/EmployeeDetail";
 
 // Location list view with button routing to form for adding an addditional location
 import { LocationList } from "./location/LocationList";
 import { LocationForm } from "./location/LocationForm";
+import { LocationDetail } from "./location/LocationDetail";
 
 import { CustomerList } from "./customer/CustomerList";
-import { AnimalDetail } from "./animal/AnimalDetail";
 
 // Application views is the routing map for what is shown on the main portion of the application.
 export const ApplicationViews = () => {
@@ -60,15 +62,23 @@ export const ApplicationViews = () => {
 
       {/* Render employee list */}
       <EmployeeProvider>
-        <LocationProvider>
-          <Route exact path="/employees">
-            <EmployeeList />
-          </Route>
+        <Route exact path="/employees">
+          <EmployeeList />
+        </Route>
+      </EmployeeProvider>
 
-          <Route path="/employees/create">
+      <EmployeeProvider>
+        <LocationProvider>
+          <Route exact path="/employees/create">
             <EmployeeForm />
           </Route>
         </LocationProvider>
+      </EmployeeProvider>
+
+      <EmployeeProvider>
+        <Route path="/employees/detail/:employeeId(\d+)">
+          <EmployeeDetail />
+        </Route>
       </EmployeeProvider>
 
       {/* Render location list */}
@@ -76,8 +86,15 @@ export const ApplicationViews = () => {
         <Route exact path="/locations">
           <LocationList />
         </Route>
-        <Route path="/locations/create">
+        
+        <Route exact path="/locations/create">
           <LocationForm />
+        </Route>
+      </LocationProvider>
+
+      <LocationProvider>
+        <Route path="/locations/detail/:locationId(\d+)">
+          <LocationDetail />
         </Route>
       </LocationProvider>
 
