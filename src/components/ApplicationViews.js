@@ -60,6 +60,16 @@ export const ApplicationViews = () => {
         </Route>
       </AnimalProvider>
 
+      <AnimalProvider>
+        <CustomerProvider>
+          <LocationProvider>
+            <Route path="/animals/edit/:animalId(\d+)">
+              <AnimalForm />
+            </Route>
+          </LocationProvider>
+        </CustomerProvider>
+      </AnimalProvider>
+
       {/* Render employee list */}
       <EmployeeProvider>
         <Route exact path="/employees">
@@ -70,6 +80,15 @@ export const ApplicationViews = () => {
       <EmployeeProvider>
         <LocationProvider>
           <Route exact path="/employees/create">
+            <EmployeeForm />
+          </Route>
+        </LocationProvider>
+      </EmployeeProvider>
+
+      {/* Employee Employee */}
+      <EmployeeProvider>
+        <LocationProvider>
+          <Route exact path="/employees/edit/:employeeId(\d+)">
             <EmployeeForm />
           </Route>
         </LocationProvider>
@@ -86,7 +105,7 @@ export const ApplicationViews = () => {
         <Route exact path="/locations">
           <LocationList />
         </Route>
-        
+
         <Route exact path="/locations/create">
           <LocationForm />
         </Route>
